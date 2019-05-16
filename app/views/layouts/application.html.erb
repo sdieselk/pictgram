@@ -25,6 +25,11 @@
             <%= image_tag "icons/heart.png" %>
             <% end %>
           </li>
+          
+          <button type="button" id="hoge" class="btn btn-lg btn-primary" data-toggle="popover" data-placement="bottom" data-content="カメラマークのアイコンをクリックすると写真を投稿できます" style="margin-top: 15px;">
+            ヘルプ
+          </button>
+
           <li>
             <%= link_to new_topic_path do %>
             <%= image_tag "icons/camera.png" %>
@@ -55,6 +60,9 @@
     <script>
       $(function(){
         $(".alert").fadeOut(5000);
+      });
+      $(function() {
+        $('#hoge').popover();
       });
     </script>
     
