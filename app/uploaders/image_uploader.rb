@@ -20,9 +20,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-
+  
   # Process files as they are uploaded:
   # process scale: [200, 300]
+  def size_range
+    1..10.megabytes
+  end
+  
+  def extension_white_list
+    %w(jpg jpeg png)
+  end
   #
   # def scale(width, height)
   #   # do something
