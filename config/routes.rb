@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root "pages#index"
   get "pages/help"
+  post "topics/comment" => "topics#comment"
   
   resources :users
   
@@ -19,4 +20,10 @@ Rails.application.routes.draw do
   
   get "favorites/index"
   post "/favorites", to: "favorites#create"
+  delete "/favorites", to: "favorites#destroy"
+  
+  resources :users, only: [:index]
+  resources :topics, only: [:index,  :create] do
+    resources :comments, only: [:create]
+  end
 end

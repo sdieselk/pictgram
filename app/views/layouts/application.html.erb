@@ -6,13 +6,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
-    <% end %>
-    
     <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
       <div class="container">
         <%= link_to root_path do %>
@@ -55,6 +52,11 @@
         </ul>
       </div>
     </nav>
+    
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert" style="margin-top: 71px;"><%= value %></div>
+    <% end %>
+    
     
     <%= yield %>
     <script>
